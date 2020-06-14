@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package taskserver;
+
+service TaskServer {
+    rpc SquareNumber(stream Num) returns (stream Num) {}
+
+    rpc PrintNumbers(Numbers) returns (google.protobuf.Empty) {}
+}
+
+message Num {
+    int32 val = 1;
+}
+
+message Numbers {
+    repeated int32 array = 1;
+}
